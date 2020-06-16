@@ -1,0 +1,17 @@
+Installazione di Composer:   (da fare solo una volta)
+- Sul web cercare "composer" (https://getcomposer.org/download/)
+- Scaricare il Setup
+- su windows aggiungere come variabile d'ambiente il percorso della cartella di php
+
+
+
+ Installazione laravel in un progetto (dopo aver installato Composer e da fare in ogni progetto):
+Laravel utilizza composer. Da terminale puntare la cartella padre del progetto e lanciare:
+- composer create-project --prefer-dist laravel/laravel directoryProgetto
+- puntare dal terminale la cartella (directoryProgetto)
+- lanciare: npm install
+
+da adesso in poi si può usare anche l'npm run watch
+
+in un'altro terminale lanciare:
+- puntare sempre nella cartella del progetto e lanciare: php artisan serve

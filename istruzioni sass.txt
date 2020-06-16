@@ -1,0 +1,30 @@
+1) creare la cartella del progetto.
+2) aprire powershell (tasto destro su start -> Powershell)
+3) nel terminale scrivere: "cd c:\cartellaDelProgetto\" e premere invio (oppure scrivere "cd" e spostare la cartella dentro il terminale)
+4) scrivere: npm init -y  e premere invio
+
+6) scrivere: npm install cross-env --save-dev e invio
+7) scrivere: cp node_modules/laravel-mix/setup/webpack.mix.js ./
+8) creare dentro la cartella del progetto una cartella "src", e con Atom creare i 3 file: index.html, app.scss e app.js
+9) Con Atom aprire il file webpack.mix.js, cancellare tutto il codice e incollare: 
+let mix = require('laravel-mix');
+mix
+  .js('src/app.js', 'dist/')
+  .sass('src/app.scss', 'dist/')
+  .copy('src/index.html', 'dist/');
+e salvare
+10) Con atom package.json e sostituire l'elemento "scripts" con: 
+"scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+}
+11) nella Powershell inviare il comando: npm install cross-env --save-dev
+12) e infine inviare il comando: npm run watch
+13) inviare una seconda volta lo stesso comdando
+14) provare a fare delle modifiche sul file scss e controllare che la powershell "senta" le modifiche.
+15) aprire MAMP e puntare la cartella del progetto: MAMP -> preferences -> web server -> select ->  selezionare la cartella "dist" del progetto
+16) andare sul browser e scrivere nella bar indirizzo: localhost
